@@ -96,7 +96,7 @@ columns=fullflexible
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 \vspace{3cm}
-\title{Assignment 4 11th Class}
+\title{Assignment 5 12th Class}
 \author{Gunjit Mittal (AI21BTECH11011)}
 \maketitle
 Download all python codes from 
@@ -108,22 +108,59 @@ Download all latex codes from
 https://github.com/GunjitMittal/Assignment4/tree/main/Assignment4 
 \end{lstlisting} 
 \section{Question}
-In a relay race there are five teams A, B, C, D and E.\\ 
-\begin{enumerate}[label= (\alph*)]
-\item What is the probability that A, B and C finish first, second and third,
-respectively.\\
-\item What is the probability that A, B and C are first three to finish (in any order)
+Let A and B be independent events with $\Pr(A) = 0.3$ and $\Pr(B) = 0.4$. Find
+\begin{enumerate}[label= (\roman{enumi})]
+    \item $\Pr(A \cap  B)$ 
+    \item $\Pr(A \cup  B)$
+    \item $\Pr(A|B)$
+    \item $\Pr(B|A)$
 \end{enumerate}
-(Assume that all finishing orders are equally likely)
 \section{Solution}
 \solution{}
-Let us consider five random variables $X_A, X_B, X_C, X_D ~\text{and}~ X_E \in \{1,2,3,4,5\}$ where $X_Y=i$ represents that $Y$ team finished in $i_{th}$ place and all the $X_Y$ are distinct
-\begin{enumerate}[label= (\alph*)]
-    \item A, B and C finsishing first, second and third respectively is represented by $X_A=1, X_B=2 ~\text{and}~  X_C=3$\\
-    Total number of finishing orers $= 5! = 120$\\
-    Fixing $X_A, X_B and X_C $the number of possible orders will become $\frac{5!}{5\times4\times3}=\frac{120}{60}=2$
-    $\therefore \Pr(X_A=1, X_B=2 ~\text{and}~ X_C=3) = \frac{2}{120}=\frac{1}{60}$
-    \item A, B and C finishing in top 3 irrespective of order is represented by $X_A,X_B,X_C \in\{1,2,3\}$
-    $\therefore \Pr(X_A,X_B,X_C \in\{1,2,3\})=\frac{1}{60}\times3!=\frac{1}{10}$
+\begin{align}
+    \Pr(A+B) = \Pr(A) + \Pr(B) - \Pr(AB)
+    \label{eq:union}
+\end{align}
+\begin{align}
+    \Pr(A|B) = \frac{\Pr(AB)}{\Pr(B)}
+    \label{eq:conditional}
+\end{align}
+\begin{enumerate}[label= (\roman{enumi})]
+    \item $\Pr(AB) = \Pr(A) \times \Pr(B)$ cause A and B are independent events\\
+    \begin{align}
+        \Pr(AB) = 0.3 \times 0.4 = 0.12
+    \end{align}
+    \item Using\eqref{eq:union}\\
+    \begin{align}
+        \Pr(A+B) = 0.3 + 0.4 - 0.12 = 0.58
+    \end{align}
+    \item Using\eqref{eq:conditional}\\
+    \begin{align}
+        \Pr(A|B) = \frac{\Pr(AB)}{\Pr(B)} = \frac{0.12}{0.4} = 0.3
+    \end{align}
+    \item Using\eqref{eq:conditional}\\
+    \begin{align}
+        \Pr(B|A) = \frac{\Pr(AB)}{\Pr(A)} = \frac{0.12}{0.3} = 0.4
+    \end{align}
 \end{enumerate}
+\noindent \textbf{Note:} Derivation of \eqref{eq:union} using Boolean Algebra:
+\noindent We note that for any events A and B we have the following:
+\begin{align}
+A + B &= A(B + B') + B(A + A') \\ 
+&= (AB + BA) + AB' + A'B \\
+&= AB + AB' + A'B
+\label{eq:id1}
+\end{align}
+and
+\begin{align}
+\pr{A} &= \pr{AB'} + \pr{AB} 
+\label{eq:id2}
+\end{align}
+Thus, taking probabilities in \eqref{eq:id1}, since all the events are mutually disjoint,
+\begin{align}
+\pr{A + B} &= \pr{AB'} + \pr{AB} + \pr{A'B} \\
+&= \pr{A} + \pr{B} - \pr{AB} \\
+&= \pr{A} + \pr{B} - \pr{AB}
+\label{eq:derive}
+\end{align}
 \end{document} 
