@@ -145,22 +145,22 @@ Let A and B be independent events with $\Pr(A) = 0.3$ and $\Pr(B) = 0.4$. Find
 \end{enumerate}
 \noindent \textbf{Note:} Derivation of \eqref{eq:union} using Boolean Algebra:
 \noindent We note that for any events A and B we have the following:
-\begin{align}
-A + B &= A(B + B') + B(A + A') \\ 
-&= (AB + BA) + AB' + A'B \\
-&= AB + AB' + A'B
+\begin{multline}
+A + B = A(B + B') + B(A + A') \\ 
+= (AB + BA) + AB' + A'B \\
+= AB + AB' + A'B
 \label{eq:id1}
-\end{align}
+\end{multline}
 and
 \begin{align}
 \pr{A} &= \pr{AB'} + \pr{AB} 
 \label{eq:id2}
 \end{align}
 Thus, taking probabilities in \eqref{eq:id1}, since all the events are mutually disjoint,
-\begin{align}
-\pr{A + B} &= \pr{AB'} + \pr{AB} + \pr{A'B} \\
-&= \pr{A} + \pr{B} - \pr{AB} \\
-&= \pr{A} + \pr{B} - \pr{AB}
+\begin{multline}
+\pr{A + B} = \pr{AB'} + \pr{AB} + \pr{A'B} \\
+= \pr{A} + \pr{A'B} \\
+= \pr{A} + \pr{B} - \pr{AB}
 \label{eq:derive}
-\end{align}
+\end{multline}
 \end{document} 
