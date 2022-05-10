@@ -1,6 +1,14 @@
-import math
-n=int(input("Number of teams\n"))
-top_three_ordered=1/(n*(n-1)*(n-2))
-top_three_unordered=math.factorial(3)*top_three_ordered
-print(f"probability that A, B and C finish first, second and third,respectively {top_three_ordered}.")
-print(f"probability that A, B and C are first three to finish (in any order) {top_three_unordered}.")
+e=10e-6
+pr_a=0.3;pr_b=0.4
+pr_anb = pr_a*pr_b
+pr_aub = pr_a+pr_b-pr_anb
+pr_a_b = pr_anb / pr_b
+pr_b_a = pr_anb / pr_a
+if abs(pr_anb-0.12)<e:
+    print("Solution to part (i) verified.\n")
+if abs(pr_aub-0.58)<e:
+    print("Solution to part (ii) verified.\n")
+if abs(pr_a_b-0.3)<e:
+    print("Solution to part (iii) verified.\n")
+if abs(pr_b_a-0.4)<e:
+    print("Solution to part (iv) verified.\n")
